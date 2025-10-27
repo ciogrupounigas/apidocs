@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oficina del CIO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Oficina del CIO</div>
+        <nav>
+            <ul>
+                <li><a href="#vision">Visión</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Transformación Digital y Liderazgo Tecnológico</h1>
+        <p>Innovando para fortalecer la estrategia, eficiencia y sostenibilidad tecnológica de la organización.</p>
+        <a href="#proyectos" class="btn">Ver Proyectos</a>
+    </section>
+
+    <section id="vision" class="section">
+        <h2>Visión Estratégica</h2>
+        <p>Guiar la evolución tecnológica alineada con los objetivos corporativos, garantizando seguridad, eficiencia y valor agregado a los procesos de negocio.</p>
+    </section>
+
+    <section id="proyectos" class="section dark">
+        <h2>Proyectos Destacados</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Automatización de Procesos</h3>
+                <p>Implementación de flujos digitales para optimizar tiempos y reducir errores operativos.</p>
+            </div>
+            <div class="card">
+                <h3>Transformación Digital</h3>
+                <p>Integración de sistemas y cultura digital para mejorar la competitividad y experiencia del usuario.</p>
+            </div>
+            <div class="card">
+                <h3>Seguridad y Datos</h3>
+                <p>Fortalecimiento de la infraestructura y políticas de ciberseguridad corporativa.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <p>© 2025 Oficina del CIO | Innovación y Estrategia Tecnológica</p>
+    </footer>
+</body>
+</html>
