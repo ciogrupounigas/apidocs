@@ -1,163 +1,91 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oficina del CIO - API Docs</title>
-  <style>
-    /* --- Estilos base --- */
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      overflow: hidden;
-      background-color: #f4f6f9;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oficina del CIO - API Docs</title>
+    <style>
+        /* --- Estilos generales --- */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
 
-    /* --- Barra superior --- */
-    .topbar {
-      background-color: #002b5c;
-      color: white;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
+        /* --- Barra superior --- */
+        .topbar {
+            background-color: #002b5c;
+            color: white;
+            padding: 10px 20px;
+            text-align: right;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .topbar .title {
-      font-weight: bold;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-    }
+        .topbar .title {
+            font-weight: bold;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
 
-    .topbar button {
-      background-color: #ffc107;
-      color: #002b5c;
-      font-weight: bold;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
+        .topbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            background-color: #ffc107;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
 
-    .topbar button:hover {
-      background-color: #ffdb4d;
-    }
+        .topbar a:hover {
+            background-color: #ffdb4d;
+            color: #002b5c;
+        }
 
-    /* --- Contenedor iframe --- */
-    .iframe-container {
-      position: relative;
-      width: 100%;
-      height: calc(100vh - 45px);
-    }
+        /* --- Contenedor del iframe --- */
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - 45px); /* Resta la altura de la barra superior */
+            margin: 0;
+            padding: 0;
+        }
 
-    .iframe-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    /* --- Modal --- */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.7);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background-color: #fff;
-      border-radius: 10px;
-      width: 80%;
-      height: 80%;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .modal-header {
-      background-color: #002b5c;
-      color: white;
-      padding: 10px 15px;
-      font-weight: bold;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-    }
-
-    .modal-header button {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-
-    .modal iframe {
-      flex: 1;
-      border: none;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-    }
-  </style>
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Barra superior -->
-  <div class="topbar">
-    <div class="title">📡 Oficina del CIO - API Documentation</div>
-    <button id="openModal">📘 Ver documentación API REST</button>
-  </div>
-
-  <!-- Contenedor principal -->
-  <div class="iframe-container">
-    <iframe 
-      src="https://ciogrupounigas.github.io/apidocs/"
-      allowfullscreen>
-    </iframe>
-  </div>
-
-  <!-- Modal -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <span>📘 API REST - Documentación</span>
-        <button id="closeModal">&times;</button>
-      </div>
-      <iframe src="https://ciogrupounigas.github.io/apidocs/apirest.md"></iframe>
+    <!-- Barra superior -->
+    <div class="topbar">
+        <div class="title">📡 Oficina del CIO - API Documentation</div>
+        <a href="https://ciogrupounigas.github.io/apidocs/apirest.md" target="_blank">
+            📘 Ver documentación API REST
+        </a>
     </div>
-  </div>
 
-  <script>
-    // --- Control del modal ---
-    const modal = document.getElementById('modal');
-    const openBtn = document.getElementById('openModal');
-    const closeBtn = document.getElementById('closeModal');
-
-    openBtn.addEventListener('click', () => modal.style.display = 'flex');
-    closeBtn.addEventListener('click', () => modal.style.display = 'none');
-
-    // Cierra el modal al hacer clic fuera del contenido
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) modal.style.display = 'none';
-    });
-  </script>
+    <!-- Contenedor del iframe -->
+    <div class="iframe-container">
+        <iframe 
+            src="https://ciogrupounigas.github.io/apidocs/" 
+            allowfullscreen
+        ></iframe>
+    </div>
 
 </body>
 </html>
